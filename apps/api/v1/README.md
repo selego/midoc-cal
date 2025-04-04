@@ -56,7 +56,7 @@ And it makes it easy for anyone to integrate with Cal.com at the application pro
    yarn workspace @calcom/api dev
    ```
 
-1. Open [http://localhost:3002](http://localhost:3002) with your browser to see the result.
+1. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ## API Authentication (API Keys)
 
