@@ -1346,7 +1346,7 @@ export const TestData = {
         expiry_date: Infinity,
         client_id: "client_id",
         client_secret: "client_secret",
-        redirect_uris: ["http://localhost:3000/auth/callback"],
+        redirect_uris: ["http://localhost:8080/auth/callback"],
       },
     },
     "office365-calendar": {
@@ -1367,7 +1367,7 @@ export const TestData = {
         expiry_date: Infinity,
         client_id: "client_id",
         client_secret: "client_secret",
-        redirect_uris: ["http://localhost:3000/auth/callback"],
+        redirect_uris: ["http://localhost:8080/auth/callback"],
       },
     },
     "daily-video": {
@@ -1380,7 +1380,7 @@ export const TestData = {
         scale_plan: "false",
         client_id: "client_id",
         client_secret: "client_secret",
-        redirect_uris: ["http://localhost:3000/auth/callback"],
+        redirect_uris: ["http://localhost:8080/auth/callback"],
       },
     },
     zoomvideo: {
@@ -1393,7 +1393,7 @@ export const TestData = {
         scale_plan: "false",
         client_id: "client_id",
         client_secret: "client_secret",
-        redirect_uris: ["http://localhost:3000/auth/callback"],
+        redirect_uris: ["http://localhost:8080/auth/callback"],
       },
     },
     "stripe-payment": {
@@ -1406,7 +1406,7 @@ export const TestData = {
         scale_plan: "false",
         client_id: "client_id",
         client_secret: "client_secret",
-        redirect_uris: ["http://localhost:3000/auth/callback"],
+        redirect_uris: ["http://localhost:8080/auth/callback"],
       },
     },
   },

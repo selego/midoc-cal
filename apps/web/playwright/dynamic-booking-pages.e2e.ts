@@ -93,7 +93,7 @@ test("dynamic booking info prefilled by query params", async ({ page, users }) =
 });
 // eslint-disable-next-line playwright/no-skipped-test
 test.skip("it contains the right event details", async ({ page }) => {
-  const response = await page.goto(`http://acme.cal.local:3000/owner1+member1`);
+  const response = await page.goto(`http://acme.cal.local:8080/owner1+member1`);
   expect(response?.status()).toBe(200);
 
   await expect(page.locator('[data-testid="event-title"]')).toHaveText("Group Meeting");

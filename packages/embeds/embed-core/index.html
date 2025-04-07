@@ -1,7 +1,7 @@
 <html>
   <head>
     <title>Embed Playground</title>
-    <!-- <link rel="prerender" href="http://localhost:3000/free"> -->
+    <!-- <link rel="prerender" href="http://localhost:8080/free"> -->
     <!-- <script src="./src/embed.ts" type="module"></script> -->
     <script>
       let popupRescheduleUid = null;
@@ -37,7 +37,7 @@
       function addInlineEmbedInNewNamespaceWithoutReload(selector) {
         Cal("init", "withoutReloadNamespace", {
           debug: true,
-          calOrigin: "http://localhost:3000",
+          calOrigin: "http://localhost:8080",
         });
 
         Cal.ns.withoutReloadNamespace("inline", {
@@ -85,7 +85,7 @@
               }
               p(cal, ar);
             };
-        })(window, "//localhost:3000/embed/embed.js", "init");
+        })(window, "//localhost:8080/embed/embed.js", "init");
       }
       embedSnippet();
       </script>
@@ -93,7 +93,7 @@
         function doubleInstallSnippetWithInlineEmbedWithNonDefaultNamespace(selector) {
           Cal("init", "doubleInstall", {
             debug: true,
-            calOrigin: "http://localhost:3000",
+            calOrigin: "http://localhost:8080",
           });
           Cal.ns.doubleInstall("inline", {
             elementOrSelector: selector,
@@ -105,7 +105,7 @@
           embedSnippet();
           Cal("init", "doubleInstall", {
             debug: true,
-            calOrigin: "http://localhost:3000",
+            calOrigin: "http://localhost:8080",
           });
           Cal.ns.doubleInstall("inline", {
             elementOrSelector: selector,
@@ -120,7 +120,7 @@
         function doubleInstallSnippetWithInlineEmbed(selector) {
           Cal("init", {
             debug: true,
-            calOrigin: "http://localhost:3000",
+            calOrigin: "http://localhost:8080",
           });
           Cal("inline", {
             elementOrSelector: selector,
@@ -132,7 +132,7 @@
           embedSnippet();
           Cal("init", {
             debug: true,
-            calOrigin: "http://localhost:3000",
+            calOrigin: "http://localhost:8080",
           });
           Cal("inline", {
             elementOrSelector: selector,
@@ -146,11 +146,11 @@
         function addTwoInlineEmbedWithTwoDifferentNamespacesWithDifferentInitConfig() {
           Cal("init", "namespace-init-test-1", {
             debug: true,
-            calOrigin: "http://localhost:3000",
+            calOrigin: "http://localhost:8080",
           });
           Cal("init", "namespace-init-test-2", {
             debug: true,
-            calOrigin: "http://127.0.0.1:3000",
+            calOrigin: "http://127.0.0.1:8080",
           });
           Cal.ns['namespace-init-test-2']("inline", {
             elementOrSelector: '#two-different-namespace-with-different-init-config-content-2',

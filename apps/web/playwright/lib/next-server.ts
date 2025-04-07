@@ -14,7 +14,7 @@ declare let process: {
   };
 };
 
-export const nextServer = async ({ port = 3000 } = { port: 3000 }) => {
+export const nextServer = async ({ port = 8080 } = { port: 8080 }) => {
   // eslint-disable-next-line turbo/no-undeclared-env-vars
   const dev = process.env.E2E_DEV_SERVER === "1" ? true : false;
   if (dev) {

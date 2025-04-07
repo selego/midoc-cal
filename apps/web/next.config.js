@@ -655,19 +655,19 @@ const nextConfig = {
         destination: "/settings/platform",
         permanent: true,
       },
-      // OAuth callbacks when sent to localhost:3000(w would be expected) should be redirected to corresponding to WEBAPP_URL
+      // OAuth callbacks when sent to localhost:8080(w would be expected) should be redirected to corresponding to WEBAPP_URL
       ...(process.env.NODE_ENV === "development" &&
       // Safer to enable the redirect only when the user is opting to test out organizations
       isOrganizationsEnabled &&
       // Prevent infinite redirect by checking that we aren't already on localhost
-      process.env.NEXT_PUBLIC_WEBAPP_URL !== "http://localhost:3000"
+      process.env.NEXT_PUBLIC_WEBAPP_URL !== "http://localhost:8080"
         ? [
             {
               has: [
                 {
                   type: "header",
                   key: "host",
-                  value: "localhost:3000",
+                  value: "localhost:8080",
                 },
               ],
               source: "/api/integrations/:args*",

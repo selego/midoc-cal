@@ -25,7 +25,7 @@ import { timeTravelToTheBeginningOfToday } from "./getSchedule/utils";
 
 vi.mock("@calcom/lib/constants", () => ({
   IS_PRODUCTION: true,
-  WEBAPP_URL: "http://localhost:3000",
+  WEBAPP_URL: "http://localhost:8080",
   RESERVED_SUBDOMAINS: ["auth", "docs"],
 }));
 

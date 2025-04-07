@@ -10,7 +10,7 @@ const callback = function (e: any) {
   console.log("Event: ", e.type, detail);
 };
 
-const origin = `${new URL(document.URL).protocol}localhost:3000`;
+const origin = `${new URL(document.URL).protocol}localhost:8080`;
 document.addEventListener("click", (e) => {
   const target = e.target as HTMLElement;
   if ("href" in target && typeof target.href === "string") {
@@ -200,7 +200,7 @@ if (only === "all" || only === "ns:fourth") {
 if (only === "all" || only === "ns:corpTest") {
   Cal("init", "corpTest", {
     debug: true,
-    origin: "http://localhost:3000",
+    origin: "http://localhost:8080",
   });
   Cal.ns.corpTest([
     "inline",

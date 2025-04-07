@@ -7,21 +7,21 @@
     "analyze:server": "BUNDLE_ANALYZE=server next build",
     "analyze:browser": "BUNDLE_ANALYZE=browser next build",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf .next",
-    "dev": "next dev --turbopack",
+    "dev": "next dev --turbopack -p 8080",
     "dev:cron": "ts-node cron-tester.ts",
     "dev-https": "NODE_TLS_REJECT_UNAUTHORIZED=0 next dev --experimental-https",
     "dx": "yarn dev",
-    "test-codegen": "yarn playwright codegen http://localhost:3000",
+    "test-codegen": "yarn playwright codegen http://localhost:8080",
     "type-check": "tsc --pretty --noEmit",
     "type-check:ci": "tsc-absolute --pretty --noEmit",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 8080",
     "lint": "eslint . --ignore-path .gitignore",
     "lint:fix": "eslint . --ext .ts,.js,.tsx,.jsx --fix",
     "lint:report": "eslint . --format json --output-file ../../lint-results/web.json",
     "check-changed-files": "ts-node scripts/ts-check-changed-files.ts",
     "translate-locales": "ts-node scripts/check-missing-translations.ts",
-    "stripe:listen": "stripe listen --forward-to http://localhost:3000/api/stripe/webhook"
+    "stripe:listen": "stripe listen --forward-to http://localhost:8080/api/stripe/webhook"
   },
   "engines": {
     "yarn": "3.4.1"
