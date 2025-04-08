@@ -9,6 +9,8 @@ WORKDIR /app
 # Clone Cal.com source code
 RUN git clone https://github.com/calcom/cal.com.git .
 
+ENV NODE_OPTIONS=--max-old-space-size=6144
+
 # Install dependencies using Yarn
 RUN corepack enable && yarn install --frozen-lockfile
 
@@ -17,5 +19,5 @@ EXPOSE 8080
 
 # Start script: forward Clever Cloud's expected 8080 PORT to Cal.com port 3000
 CMD socat TCP-LISTEN:8080,fork TCP:localhost:3000 & \
-    yarn build && \
-    yarn start
+    NODE_OPTIONS=--max-old-space-size=6144 yarn build && \
+    NODE_OPTIONS=--max-old-space-size=6144 yarn start
