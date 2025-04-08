@@ -51,9 +51,13 @@ ENV NEXT_PUBLIC_INVALIDATE_AVAILABLE_SLOTS_ON_BOOKING_FORM=0
 ENV NEXT_PUBLIC_QUICK_AVAILABILITY_ROLLOUT=10
 ENV NEXT_TELEMETRY_DISABLED=1
 ENV NODE_OPTIONS=--max-old-space-size=6144
+ENV YARN_ENABLE_GLOBAL_CACHE=false
+ENV YARN_ENABLE_IMMUTABLE_INSTALLS=true
+ENV YARN_ENABLE_TELEMETRY=0
 
-# Install dependencies using Yarn
-RUN corepack enable && yarn install --frozen-lockfile && yarn build
+# Install dependencies and build using Yarn
+RUN corepack enable && yarn install --frozen-lockfile
+RUN yarn build
 
 # Expose the port expected by Clever Cloud (informational)
 EXPOSE 8080
