@@ -9,6 +9,9 @@ WORKDIR /app
 # Clone Cal.com source code
 RUN git clone https://github.com/calcom/cal.com.git .
 
+ENV ALLOWED_HOSTNAMES='"cal.com","cal.dev","cal-staging.com","cal.community","cal.local:8080","localhost:8080"'
+ENV RESERVED_SUBDOMAINS='"app","auth","docs","design","console","go","status","api","saml","www","matrix","developer","cal","my","team","support","security","blog","learn","admin"'
+ENV NEXT_TELEMETRY_DISABLED=1
 ENV NODE_OPTIONS=--max-old-space-size=6144
 
 # Install dependencies using Yarn
