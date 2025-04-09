@@ -8,7 +8,9 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-
+    defaults:
+      run:
+        working-directory: ./cal.com
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -18,13 +20,12 @@ jobs:
         with:
           node-version: 18
           cache: 'yarn'
+          cache-dependency-path: ./cal.com/yarn.lock
 
       - name: Install dependencies
-        working-directory: ./cal.com
         run: yarn install --frozen-lockfile
 
       - name: Build the app
-        working-directory: ./cal.com
         run: |
           set -o allexport
           source .env
