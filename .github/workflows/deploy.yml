@@ -1,0 +1,46 @@
+name: Build to deploy branch for Clever Cloud
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: 'yarn'
+
+      - name: Install dependencies
+        working-directory: ./cal.com
+        run: yarn install --frozen-lockfile
+
+      - name: Build the app
+        working-directory: ./cal.com
+        run: |
+          set -o allexport
+          source .env
+          set +o allexport
+          yarn build
+          yarn prisma generate
+
+      - name: Prepare deploy branch
+        run: |
+          git config --global user.email "ops@selego.co"
+          git config --global user.name "CI Bot"
+          git fetch origin deploy || true
+          git checkout -B deploy
+          git rm -rf . || true
+          # Copy full cal.com contents to deploy branch
+          cp -R cal.com/. .
+          git add .
+          git commit -m "Deploy build" || echo "No changes to commit"
+          git push -f origin deploy
